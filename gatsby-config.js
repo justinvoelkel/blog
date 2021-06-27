@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Justin Voelkel Codes Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Justin Voelkel`,
+      summary: `Dad, developer, tinkerer.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `A place I come to write about everything.`,
+    siteUrl: `https://justinvoelkel.me`,
     social: {
       twitter: `kylemathews`,
     },
