@@ -1,6 +1,6 @@
 ---
 title: Back to Basics - Clean Code Chapters One and Two 
-date: 2021-07-27T01:30:07.396Z 
+date: 2022-03-11T22:20:14.670Z 
 description: Revisiting good practices reading Clean Code by Robert Martin
 ---
 
