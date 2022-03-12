@@ -34,7 +34,6 @@ These subsections introduce you to the high level attributes of clean code as we
 I love this list. I think after all this time I've spent working in code these descriptions represent the end goal of any system or small piece of code I'm tasked to take on. It's worth considering how much overlap there is here in terms of related words or synonyms (IE straightforward and simple). To me it all distills down to simplicity - code is simple because it is tidy, nicely arranged, digestable, modular, etc. The problem is _that is way harder to achieve than you think_. There is a quote I love that is weirdly attributed to several individuals that encapsulates this really well.
 
 > If I had more time, I would have written a shorter letter.
-> - lots of people (who actually knows)
 
 That is to say - brevity, simplicity, and being concise are very difficult, especially when you are trying to convey something complex or context heavy.
 
