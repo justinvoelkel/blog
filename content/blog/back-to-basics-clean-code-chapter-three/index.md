@@ -1,6 +1,6 @@
 ---
 title: Back to Basics - Clean Code Chapter Three 
-date: 2022-03-11T22:20:14.670Z 
+date:  2022-03-24T18:23:46.782
 description: Revisiting good practices reading Clean Code by Robert Martin
 ---
 
@@ -53,4 +53,54 @@ Here we are back at naming - not much to add here but it really drives home the 
 - I've always thought long names were bad practice. When I first started the Zend Framework naming conventions were basically a punchline. But at this point in my career I can really appreciate clarity over brevity.
 
 ### Function Arguments
-This is a big one for me. And while the concept(s) here may be sort of obvious at first glance the examples given of when it's _ok_ or _reasonable_ to use a diadic or triadic helps to add some contrast and remind us that these aren't concrete rules - don't try to write cartesian points that only take one argument _unless you really want to I guess_.
+This is a big one for me. While the concept(s) here may be sort of obvious at first glance the examples given of when it's _ok_ or _reasonable_ to use a diadic or triadic helps to add some contrast and remind us that these aren't concrete rules - don't try to write cartesian points that only take one argument _unless you really want to I guess_.
+
+- Monadic, diadic, and triadic function arguments
+  - We should try to limit the number of function arguments always
+  - Ideally we should have one but there are cases where two or three may be required and make sense
+    - diadics and triadics can be problematic when context is required to remember the order of the arguments
+  - When possible utilize members/methods of a class and utilize that classes properties to limit the number of arguments a function requires
+  - If a function absolutely requires many arguments it could be a sign you need to abstract that information into it's own class
+    - so, instead of `someFunction(foo, bar, baz)` you abstract those values to a class/object and pass like `someFunction(FooBarBaz $foo)`; not horribly well named but you get it.
+
+### A Few More Naming Things
+There are small subjections in the chapter that cover a bit more on naming conventions. Specifically, encoding verbs and keywords into function names.
+
+- It could be more explicit to name a diadic function with a verb/keywords encoded into the name directly.
+  - for example re-naming `assertEquals` to `assertExpectedEqualsActual` naturally tells the developer that the order of the arguments are `expected` then `actual`
+
+### Side Effects, Separation, and Exceptions
+This post is pretty lengthy so I'm going to lump the last few subsections together. However, that is not to imply there is less value here. I would argue that these next few subsections cover some of the most important topics in the chapter.
+
+- Functions should not have side effects
+  - You see this everywhere now as a matter of best practice.
+  - Avoiding side effects helps the predictability and orthogonality of your code
+  - Side effects also create 'temporal coupling' - limiting when and how they are called based on context
+- State change
+  - If your function needs to change the state of something it should change the state of it's owning object.
+- Command query separation
+  - functions should either _do something_ or _answer something_ but _not both_.
+    - an example is given of a setter method that both sets a value and then returns true - when used in the context of a conditional `if(set('username', 'foo'))` the intent becomes unclear and can be interpreted in many ways.
+    - the remedy to this is to extract the command `set` from the query for the value - meaning we should have a function for `attributeExists` (query) and `setAttribute` (command).
+- Prefer Exceptions to Returning Error Codes
+  - This was something I learned the hard way - when I initially started writing code I didn't really utilize exceptions heavily. After learning the benefits of bubbling exceptions to appropriate levels of the app and effective exception throwing and handling methods I learned the error in my ways.
+  - The points presented here about codes/statuses are spot on - going back to some of the previous points; your devs are going to either need an ever growing switch statement to react to different statuses or you'll end up with many (possibly nested) conditionals.
+  - Also - if the language you are working in supports multiple catch blocks you get a nice way to specify how to handle certain exceptions if you need to react differently.
+    - That sort of logic can even be abstracted to a global handler which decides how to react to exceptions (to avoid growing your catch blocks for too many different exceptions)
+- Error handling is one thing
+  - I honestly never thought of this before. Generally I would just handle exceptions inside of a function or method with some other business logic.
+  - Wrapping function calls in another function that explicitly handles exceptions helps to clean up and streamline things. That way downstream we don't have to actually worry about exception handling - it's propagated up to the appropriate caller who can decide how to act.
+
+The remainder of the chapter covers the concept of DRY principles (which I think most are familiar with) and structured programming which may be considered a bit out of date based on the language limitations it was meant to overcome.
+
+I did find it particularly note-worth that the pentultimate subsection covers _how you write functions like this_. It's somewhat reassuring to know that someone like Uncle Bob doesn't just produce magic in his first pass - he writes what's required to achieve a goal and then begins to refine what he's done. Every time this concept of just writing till it works and refining comes up I'm reminded of the Hemingway quote:
+
+> "The first draft of anything is shit."
+>
+> -- <cite>Ernest Hemingway</cite>
+
+Also Uncle Bob goes out of his way to tell us it's ok to take this approach:
+
+> "I don't write them [functions] that way [laid out in this chapter] to start. I don't think anyone could"
+
+I found this chapter to be an excellent resource and I am really excited to move on to chapter four on commenting our code!
