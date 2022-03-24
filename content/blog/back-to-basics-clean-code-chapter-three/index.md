@@ -34,4 +34,23 @@ I've always tried to follow this as a very basic principle. But, honestly - ofte
       - So, for instance, the string parsing example. If we called the function `searchParsedStringForTerm` we could sort out that it is doing one thing by writing out `TO searchParsedStringForTerm we parse the string by spaces into an array and search that array for the given term. If we find the given term we return true else we return false`.
       - I think an appropriate example of doing more than one thing in the string parsing example would be if we were also seeing if the term that is found is inside of some other data structure. In that instance we'd have to add another condition after searching the parsed string to check if the other data structure included that value. At that point you probably have one function for parsing and searching and one for checking if that value is in the other structure.
   - Another approach is - if you can extract another function from your current function without merely restating it's implementation - you probably are doing more than one thing.
+  - One level of abstraction per function
+    - We should aim to keep the level of abstraction consistent within a function. The example code given illustrates this well showing high, medium, and very low level details all grouped within one function.
+  - I need to also briefly mention the 'broken windows' analogy referenced in this chapter. It's a very real thing that most all of the teams I've worked on face. I think it all comes back to something discussed in chapter 1 - caring. You have to care enough about the code and your future selves to put in the time _now_ to ensure refactors are made and best practices are followed.
 
+### Switch Statements
+Here's my honest thoughts - don't use them. As noted it's hard to make a short/small switch statement because they are, by default, verbose. Personally, I also find them hard to read and once you've surpassed a hand full of cases they're even harder to comprehend. That falls in line with most of what's in this subsection but there are good points made for switch statement use cases.
+
+- `switch` statements can be tolerated when they only appear once, are used to create polymorphic objects, and are positioned behind an interface.
+  - I've honestly never seen this set up. I've always just seen switch statements thrown in where you need branching logic and a bunch of `if` statements doesn't feel good.
+  - After seeing the code though I can see how this can make for a reasonable implementation. At least if this baloons with different cases it's relegated to one spot.
+
+### Use Descriptive Names
+Here we are back at naming - not much to add here but it really drives home the concepts delivered in chapter two.
+
+- A long descriptive name is better than a short enigmatic one
+- A long descriptive name is better than a long descriptive comment
+- I've always thought long names were bad practice. When I first started the Zend Framework naming conventions were basically a punchline. But at this point in my career I can really appreciate clarity over brevity.
+
+### Function Arguments
+This is a big one for me. And while the concept(s) here may be sort of obvious at first glance the examples given of when it's _ok_ or _reasonable_ to use a diadic or triadic helps to add some contrast and remind us that these aren't concrete rules - don't try to write cartesian points that only take one argument _unless you really want to I guess_.
