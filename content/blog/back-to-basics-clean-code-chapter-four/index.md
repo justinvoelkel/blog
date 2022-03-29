@@ -1,6 +1,6 @@
 ---
 title: Back to Basics - Clean Code Chapter Four 
-date:  2022-03-24T18:23:46.782
+date: 2022-03-29T16:53:05.644Z
 description: Revisiting good practices reading Clean Code by Robert Martin
 ---
 
@@ -74,3 +74,41 @@ I'm going to say right off the bat that some of these feel like those monochroma
   - What was originally meant to help begins to hinder
   - Can lead to major productivity hits if you just "take their word for it".
   - Things as subtle as word choice (subjective things) can lead to misinterpretation and still serve as misinformation.
+- Mandated comments
+  - As stated 'just silly'
+  - We don't need docblocks on everything by mandate for reasons outlined above
+- Journal comments
+  - Sounds like maybe there was a time and place for these but definitely not in modern software development with source control logs.
+- Noise comments
+  - Count me guilty having done this as well.
+  - Sometimes trying to be helpful and explicit becomes counter intuitive and a waste of time.
+  - These seem like they would be an artifact of mandated comments.
+  - Don't include useless emotional comments - yes you might be frustrated but that act is in no way helpful or constructive.
+- Scary noise
+  - Ah yes - the old copy pasta problem. Again an artifact of mandating maybe?
+- Just use a variable or function name
+  - This is something I, and I think others, have failed to do at times for fear of adding more code than is required.
+  - It all points back to the benefit(s) of being clear and explicit. That additional code may not serve a practical function outside of giving you easier to comprehend code - that in and of itself makes it worth it.
+- Positions, Closing Brace, Atrribution
+  - I've not run into these types of comments in modern projects thankfully.
+- Commented Code
+  - "Others who see that commented-out code won't have the courage to delete it."
+  - ^ this times 90872394720
+  - This is a practice that relates back to 'care'. We need to make sure we're tidying up after ourselves.
+  - Given you work somewhere that does peer review commented code should never get into your mainline branch.
+  - If you have commented code you should exercise the boy scout rule and clean it up as you encounter it if possible
+    - If the person that wrote that code is not longer around and there are no tests to check for regression this is _difficult_ to say the least.
+- HTML in comments
+  - can't say I've seen this fortunately.
+- Nonlocal, TMI, Inobvious Connection
+  - these are little bit tricky becuase they feel like something you need to catch yourself in the act of doing
+  - In the case of inobvious connection it is just as much to do with the code being written as the comment supporting it.
+    - this would probably be a good spot to use variable names. In the example the bits of code in question might be able to be pulled out into variables with expressive names or clarifying comments of their own.
+- Function Headers
+  - "A well-chosen name for a small function that does one thing is usually better than a comment header"
+
+  And that is pretty much it. As an added bonus I learned the meaning of the word _anathema_. In reading this chapter I felt like I would be really light on notes but surprisingly that has not been the case.
+
+  Moving ahead to chapter five on formatting!
+
+
