@@ -30,4 +30,47 @@ In the interest of acting with humility - I've been so guilty of a lot of these 
     - I see the former a lot. I did the former a lot.
     - I think I did this a lot because it felt like the latter was an unneccessary abstraction...till you go back to that code six months later and need to remind yourself what all of those in-line conditions are again.
 
+### Good Comments
+- Legal comments - makes sense if you need them
+- Informative comments
+  - a little vague - I don't think anyone is leaving a comment for malicious purposes
+  - 'better to use the name of the function to convey information'
+    - this is probably the best approach and aligns most with what we've learned so far
+- Explanation of intent
+  - This is where I argue comments are most valid. There are so many implementation approaches people are bound to have different opinions on how to solve a problem. These types of comments clue a developer in on your mindset and choices when solving a problem and can help them better understand and even learn if they've encountered this code and had a different approach in their head on how it _should_ be done.
+- Clarification
+  - I think these fall in line with explanation of intent in terms of usefulness.
+  - These types of comments (IMO) are those that help us surmount the limited expressiveness of framework/language APIs. Modern APIs have come a long way in terms of being declarative but they're not perfect and these comments help to fill those gaps.
+    - As a very basic example I just think of javascript's `Array.prototype.filter`. Even though it is expressive and clear about what it is doing I often can't remember if it is filtering elements that evaluate to true or false - that seems to be a common pitfall. Leaving a small comment on the callback logic can help.
+- Warning of consequences
+  - I don't know - these feel like a bit of a smell to me.
+  - If you have dangerous or _highly conseqential_ code maybe time is better spent trying to lessen the consequences.
+  - the example given is for a long running test - which is fair. I guess the consequences are time based not risk based.
+- TODO comments
+  - Ah yes - they make me feel warm and fuzzy. As if I've been proactive in identifying an improvement or change needed.
+  - Rarely ever acted on or see the light of day again.
+  - Sorry for being so pessimistic - failure to act on these is probably a team or process error more than anything. If you have them you should have time built in to review and pay down that tech debt.
+- Amplification
+  - Feels similar to warning of consequences or explanation of intent - but very valid.
+- Docblocks (altered from Javadocs - because I don't java)
+  - Skipping ahead a bit; it never dawned on me that docblocks are a waste of time for a private API.
+  - Like TODO comments these tend to make me feel warm and fuzzy because they just make the code look and feel organized.
+  - But, the overhead in maintaining them over time and keeping them accurate just plain sucks.
+    - TIL the cost of this maintenance is worth it for a public API but not so much for private.
 
+### Bad Comments
+I'm going to say right off the bat that some of these feel like those monochromatic segments of an infomercial. Meaning they feel like an overly clumsy and wild representation of what a developer would actually do. Still valid points are delivered.
+
+- Mumbling
+  - I think the point is that your first pass at a comment can make sense in _your_ head; but you need to re-read and refine from a contextless point of view (aka someone who happens upon this code later and hasn't been working on it)
+  - "Any comment that forces you to look in another module for the meaning of that comment has failed to communicate to you and is not worth the bits it consumes"
+- Redundant comments
+  - I've been guilty of this in the past and, if I'm being honest, probably continue to do it to some extent.
+  - You need to re-read your code including the function name and logic and decide if it is expressive enough
+  - If you've already got a comment and it's just re-iterating the implementation almost in psuedocode it's not valuable at all.
+  - Just don't re-state implementation details in a comment.
+- Misleading comments
+  - The number one reason not to use them.
+  - What was originally meant to help begins to hinder
+  - Can lead to major productivity hits if you just "take their word for it".
+  - Things as subtle as word choice (subjective things) can lead to misinterpretation and still serve as misinformation.
