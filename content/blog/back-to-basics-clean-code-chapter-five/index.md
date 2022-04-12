@@ -43,7 +43,7 @@ Egh well - chapter five is about formatting. This one's a bit if a layup with th
 
 ## Variable Declarations
     - Should be declared as close to their usage as possible.
-      - I've broken this before by shoving all my variable declarations at the top of functions. Don't really do it anymore but...yeah.
+    - I've broken this before by shoving all my variable declarations at the top of functions. Don't really do it anymore but...yeah.
     - However, instance variables should appear at the top of the class (yep - that's a no brainer).
 
 ## Depedent Functions
