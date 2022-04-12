@@ -42,26 +42,27 @@ Egh well - chapter five is about formatting. This one's a bit if a layup with th
     - The note about how frustrating it is to sort out what a system does by constantly scrolling up/down or moving files is something I can totally relate to.
 
 ## Variable Declarations
-    - Should be declared as close to their usage as possible.
+- Should be declared as close to their usage as possible.
     - I've broken this before by shoving all my variable declarations at the top of functions. Don't really do it anymore but...yeah.
-    - However, instance variables should appear at the top of the class (yep - that's a no brainer).
+- However, instance variables should appear at the top of the class (yep - that's a no brainer).
 
 ## Depedent Functions
 This section is where I found most of the value in this chapter.
-    - If one function calls another they should be vertically close with the caller being above the callee if possible.
-    - All too often I would write and refactor till I was happy with what I've produced but would skip this additional step of making sure things _flow_.
-    - Calling back to previous chapters - putting methods or functions in this order helps the code read nicely and one concept flows into another related concept.
-    - avoids having to ping-pong up and down a class/file
-    - Adds the benefit of then being able to skim files for what we're looking for - if things are named well that is.
+
+- If one function calls another they should be vertically close with the caller being above the callee if possible.
+- All too often I would write and refactor till I was happy with what I've produced but would skip this additional step of making sure things _flow_.
+- Calling back to previous chapters - putting methods or functions in this order helps the code read nicely and one concept flows into another related concept.
+- avoids having to ping-pong up and down a class/file
+- Adds the benefit of then being able to skim files for what we're looking for - if things are named well that is.
 
 ## Horizontal Formatting
-  - Not much to see here - lots of standards out there already and IDEs will typically align with what is mostly accepted.
-  - Horizontal openness and density
+- Not much to see here - lots of standards out there already and IDEs will typically align with what is mostly accepted.
+- Horizontal openness and density
     - operators should get spaces, function args should be spaced after commas.
     - most style linters can pick up on this stuff - you team just needs to agree on what's best.
-  - Horizontal alignment
+- Horizontal alignment
     - just don't do it - I hate running across code that trys to align everything into columns. It's not easier to look at and it's harder to maintain.
-  - Indentation
+- Indentation
     - again, not much to report here. There are alot of language standards that can be applied to linters - you and your team just need to agree on which standards to use.
     - inlining things as a short cut is usually a bad idea anyway - it's fine to break things out with extra lines and parens.
 
