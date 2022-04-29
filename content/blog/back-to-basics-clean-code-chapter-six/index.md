@@ -1,6 +1,6 @@
 ---
 title: Back to Basics - Clean Code Chapter Six 
-date: 2022-04-12T19:17:04.795Z
+date: 2022-04-28T19:17:04.795Z
 description: Revisiting good practices reading Clean Code by Robert Martin
 ---
 
@@ -40,5 +40,23 @@ Chapter six covers objects and data structures. This chapter was awesome and pre
 - They are the worst of both worlds and we should avoid
 
 ## Hiding Structure
-- 
+- The first takeaway from this section is deceptively simple - if `ctxt` is an object [example code] we should be _telling_ it to do something not _asking_ it about it's internals.
+- Looking further into the example code it's revealed that the intent of the code in question to create a scratch directory - the ideal outcome here is then to add a method to `ctxt` to do exactly that.
+
+## Data Transfer Objects
+- DTOs are a class with public variables and no functions.
+- Very useful when communicating with databases or parsing messages from sockets.
+- They typically become the first in a series of translation stages that convert raw data into objects in application code.
+
+## Active Record
+- A special form of DTOs
+- Data structures with public variables (or getters/setters) but include navigational methods like `save` and `find`.
+
+The conclusion really encapsulates the important takeaways:
+- Objects expose behavior and hide data.
+  - This makes it easier to add new kinds of objects without changing behavior.
+  - It makes it hard to add new behaviors to existing objects.
+- Data structures expose data but have no significant behavior.
+  - This makes it easy to add new behaviors to existing structures.
+  - It makes it hard to add new data structures to existing functions.
 
